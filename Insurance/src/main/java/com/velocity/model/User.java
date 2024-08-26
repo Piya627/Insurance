@@ -21,7 +21,7 @@ public class User {
 	private String email;
 	private long mobNo;
 
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "userid")
 	private List<Policy> policylist;
 	
 	@OneToMany(mappedBy = "userid")
