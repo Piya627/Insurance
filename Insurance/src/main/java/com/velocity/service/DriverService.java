@@ -6,11 +6,14 @@ import java.util.Optional;
 import com.velocity.model.Driver;
 
 public interface DriverService {
-public	Driver saveDriver(Driver driver);
-public	Driver updateDriver(Integer id,Driver driver);
-List<Driver>getAllDrivers();
-Optional<Driver>getDriverById(Integer id);
-public void deleteDriver(Integer id);
+	public Driver saveDriver(Driver driver);
 
+	public Driver updateDriver(Integer id, Driver driver);
+
+	List<Driver> getAllDrivers();
+
+	Optional<Driver> getDriverById(Integer id);
+
+	public void deleteDriver(Integer id);
 
 }
