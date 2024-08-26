@@ -2,6 +2,7 @@ package com.velocity.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,57 +15,38 @@ import jakarta.persistence.Table;
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int userId;
-	private String firstName;
-	private String lastName;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int userid;
+	private String firstname;
+	private String lastname;
 	private String email;
-	private long mobNo;
+	private long mobno;
 
-	@OneToMany(mappedBy = "userid")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private List<Policy> policylist;
-	
-	@OneToMany(mappedBy = "userid")
-	private List<PolicyPremiun> policypremiumlist;
 
-	public List<Policy> getPolicylist() {
-		return policylist;
+	public int getUserid() {
+		return userid;
 	}
 
-	public void setPolicylist(List<Policy> policylist) {
-		this.policylist = policylist;
+	public void setUserid(int userid) {
+		this.userid = userid;
 	}
 
-	public List<PolicyPremiun> getPolicypremiumlist() {
-		return policypremiumlist;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setPolicypremiumlist(List<PolicyPremiun> policypremiumlist) {
-		this.policypremiumlist = policypremiumlist;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
 	}
 
-	public int getUserId() {
-		return userId;
+	public String getLastname() {
+		return lastname;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 
 	public String getEmail() {
@@ -75,18 +57,26 @@ public class User {
 		this.email = email;
 	}
 
-	public long getMobNo() {
-		return mobNo;
+	public long getMobno() {
+		return mobno;
 	}
 
-	public void setMobNo(long mobNo) {
-		this.mobNo = mobNo;
+	public void setMobno(long mobno) {
+		this.mobno = mobno;
+	}
+
+	public List<Policy> getPolicylist() {
+		return policylist;
+	}
+
+	public void setPolicylist(List<Policy> policylist) {
+		this.policylist = policylist;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", mobNo=" + mobNo + ", policylist=" + policylist + ", policypremiumlist=" + policypremiumlist + "]";
+		return "User [userid=" + userid + ", firstname=" + firstname + ", lastname=" + lastname + ", email=" + email
+				+ ", mobno=" + mobno + ", policylist=" + policylist + "]";
 	}
 
 }

@@ -1,10 +1,12 @@
 package com.velocity.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.velocity.model.Policy;
@@ -16,32 +18,24 @@ import com.velocity.service.PolicyService;
 import com.velocity.service.UserService;
 
 @RestController
+@RequestMapping("/test")
 public class UserController {
 	@Autowired
 	private UserService userservice;
-	
-	@Autowired
-	private PolicyService policyservice;
-	
-	@Autowired
-	private PolicyPremiumService policypremiumservice;
 
-	@PostMapping("/saveUserPolicyPremium")
-	public User saveUser(User user) {
+	
+	@PostMapping("/saveuserpolicy")
+	public User saveUser(@RequestBody User user) {
 
 		User user1 = userservice.saveUser(user);
-		List<Policy> policies=user.getPolicylist();
-		List<PolicyPremiun> premium=user.getPolicypremiumlist();
-		for(Policy policy:policies) {
-			policy.setUserid(user.getUserId());
-			policyservice.savePolicy(policy);
-		}
 		
-		for(PolicyPremiun prem:premium) {
-			prem.setUserid(user.getUserId());
-			policypremiumservice.savePolicyPrem(prem);
-			
-		}
 		return user1;
 	}
+	
+	@GetMapping("/hello")
+    public String hello() {
+        return "Hello World";
+    }
+
+	
 }

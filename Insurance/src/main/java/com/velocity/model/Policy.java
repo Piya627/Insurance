@@ -1,77 +1,110 @@
 package com.velocity.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="Policy")
+@Table(name = "Policy")
 public class Policy {
-	
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int policySrno;
-	private int policyId;
-	private String policyName;
-	private String policyStatus;
-	private String poicyCoverage;
-	private double policyTerm;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int policyid;
+	private int policysrno;
+	private String policyname;
+	private String policystatus;
+	private String policycoverage;
+	private double policyterm;
+	@ManyToOne
+    @JoinColumn(name = "user_id")
+	private User user;
+
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "policy")
+	private List<PolicyPremiun> policypremiumlist;
+
+	public int getPolicysrno() {
+		return policysrno;
+	}
+
+	public void setPolicysrno(int policysrno) {
+		this.policysrno = policysrno;
+	}
+
+	public int getPolicyid() {
+		return policyid;
+	}
+
+	public void setPolicyid(int policyid) {
+		this.policyid = policyid;
+	}
+
+	public String getPolicyname() {
+		return policyname;
+	}
+
+	public void setPolicyname(String policyname) {
+		this.policyname = policyname;
+	}
+
+	public String getPolicystatus() {
+		return policystatus;
+	}
+
+	public void setPolicystatus(String policystatus) {
+		this.policystatus = policystatus;
+	}
+
+	public String getPolicycoverage() {
+		return policycoverage;
+	}
+
+	public void setPolicycoverage(String policycoverage) {
+		this.policycoverage = policycoverage;
+	}
+
+	public double getPolicyterm() {
+		return policyterm;
+	}
+
+	public void setPolicyterm(double policyterm) {
+		this.policyterm = policyterm;
+	}
+
 	
-	private Integer userid;
+
 	
-	public Integer getUserid() {
-		return userid;
+
+	public User getUser() {
+		return user;
 	}
-	public void setUserid(Integer userid) {
-		this.userid = userid;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
-	public int getPolicySrno() {
-		return policySrno;
+
+	public List<PolicyPremiun> getPolicypremiumlist() {
+		return policypremiumlist;
 	}
-	public void setPolicySrno(int policySrno) {
-		this.policySrno = policySrno;
+
+	public void setPolicypremiumlist(List<PolicyPremiun> policypremiumlist) {
+		this.policypremiumlist = policypremiumlist;
 	}
-	public int getPolicyId() {
-		return policyId;
-	}
-	public void setPolicyId(int policyId) {
-		this.policyId = policyId;
-	}
-	public String getPolicyName() {
-		return policyName;
-	}
-	public void setPolicyName(String policyName) {
-		this.policyName = policyName;
-	}
-	public String getPolicyStatus() {
-		return policyStatus;
-	}
-	public void setPolicyStatus(String policyStatus) {
-		this.policyStatus = policyStatus;
-	}
-	public String getPoicyCoverage() {
-		return poicyCoverage;
-	}
-	public void setPoicyCoverage(String poicyCoverage) {
-		this.poicyCoverage = poicyCoverage;
-	}
-	public double getPolicyTerm() {
-		return policyTerm;
-	}
-	public void setPolicyTerm(double policyTerm) {
-		this.policyTerm = policyTerm;
-	}
+
 	@Override
 	public String toString() {
-		return "Policy [policySrno=" + policySrno + ", policyId=" + policyId + ", policyName=" + policyName
-				+ ", policyStatus=" + policyStatus + ", poicyCoverage=" + poicyCoverage + ", policyTerm=" + policyTerm
-				+ ", userid=" + userid + "]";
+		return "Policy [policyid=" + policyid + ", policysrno=" + policysrno + ", policyname=" + policyname
+				+ ", policystatus=" + policystatus + ", policycoverage=" + policycoverage + ", policyterm=" + policyterm
+				+ ", user=" + user + ", policypremiumlist=" + policypremiumlist + "]";
 	}
-	
-	
 	
 
 }
