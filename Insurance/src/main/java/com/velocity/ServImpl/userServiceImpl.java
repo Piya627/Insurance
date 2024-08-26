@@ -5,10 +5,10 @@ import org.springframework.stereotype.Service;
 
 import com.velocity.model.User;
 import com.velocity.repository.userRepository;
-import com.velocity.service.userSevice;
+import com.velocity.service.UserService;
 
 @Service
-public class userServiceImpl implements userSevice{
+public class userServiceImpl implements UserService{
 	
 	@Autowired
 	private userRepository usrRepository;

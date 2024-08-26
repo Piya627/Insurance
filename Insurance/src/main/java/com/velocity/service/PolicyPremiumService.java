@@ -2,8 +2,7 @@ package com.velocity.service;
 
 import com.velocity.model.PolicyPremiun;
 
-public interface policyPremServ {
-	
+public interface PolicyPremiumService {
 	public PolicyPremiun savePolicyPrem(PolicyPremiun policypremium);
 
 }

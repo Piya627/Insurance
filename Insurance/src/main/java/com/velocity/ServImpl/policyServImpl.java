@@ -5,11 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.velocity.model.Policy;
 import com.velocity.repository.policyRepository;
-import com.velocity.service.policyService;
+import com.velocity.service.PolicyService;
 
 
 @Service
-public class policyServImpl implements policyService {
+public class policyServImpl implements PolicyService {
 	
 	@Autowired
    private policyRepository plcyRepository;
@@ -19,6 +19,7 @@ public class policyServImpl implements policyService {
 		Policy policy1=plcyRepository.save(policy);
 		return policy1;
 	}
+	
 	
 
 }

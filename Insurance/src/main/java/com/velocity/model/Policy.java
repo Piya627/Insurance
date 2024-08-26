@@ -19,6 +19,15 @@ public class Policy {
 	private String policyStatus;
 	private String poicyCoverage;
 	private double policyTerm;
+	
+	private Integer userid;
+	
+	public Integer getUserid() {
+		return userid;
+	}
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
 	public int getPolicySrno() {
 		return policySrno;
 	}
@@ -54,6 +63,12 @@ public class Policy {
 	}
 	public void setPolicyTerm(double policyTerm) {
 		this.policyTerm = policyTerm;
+	}
+	@Override
+	public String toString() {
+		return "Policy [policySrno=" + policySrno + ", policyId=" + policyId + ", policyName=" + policyName
+				+ ", policyStatus=" + policyStatus + ", poicyCoverage=" + poicyCoverage + ", policyTerm=" + policyTerm
+				+ ", userid=" + userid + "]";
 	}
 	
 	

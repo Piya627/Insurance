@@ -15,6 +15,14 @@ public class PolicyPremiun {
 	private long premiunAmt;
 	private String premiumType;
 	private String premiumStatus;
+	
+	private Integer userid;
+	public Integer getUserid() {
+		return userid;
+	}
+	public void setUserid(Integer userid) {
+		this.userid = userid;
+	}
 	public long getPremiunAmt() {
 		return premiunAmt;
 	}
@@ -32,6 +40,11 @@ public class PolicyPremiun {
 	}
 	public void setPremiumStatus(String premiumStatus) {
 		this.premiumStatus = premiumStatus;
+	}
+	@Override
+	public String toString() {
+		return "PolicyPremiun [premiunAmt=" + premiunAmt + ", premiumType=" + premiumType + ", premiumStatus="
+				+ premiumStatus + ", userid=" + userid + "]";
 	}
 	
 	

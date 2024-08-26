@@ -2,9 +2,9 @@ package com.velocity.service;
 
 import com.velocity.model.User;
 
-public interface userService {
+public interface UserService {
 	
-     public User saveUser(User user);
-     
-    
+	public User saveUser(User user);
+	
+
 }

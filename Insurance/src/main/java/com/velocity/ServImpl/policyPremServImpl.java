@@ -4,11 +4,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.velocity.model.PolicyPremiun;
 import com.velocity.repository.policyPremRepository;
-import com.velocity.service.policyPremServ;
+
+import com.velocity.service.PolicyPremiumService;
 
 
 @Service
-public class policyPremServImpl implements policyPremServ{
+public class policyPremServImpl implements PolicyPremiumService{
 	
 	@Autowired
 	private policyPremRepository PolicypremRepository;
