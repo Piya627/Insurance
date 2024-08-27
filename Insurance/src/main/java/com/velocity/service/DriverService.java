@@ -10,9 +10,9 @@ public interface DriverService {
 
 	public Driver updateDriver(Integer id, Driver driver);
 
-	List<Driver> getAllDrivers();
+	public List<Driver> getAllDrivers();
 
-	Optional<Driver> getDriverById(Integer id);
+	public Optional<Driver> getDriverById(Integer id);
 
 	public void deleteDriver(Integer id);
 

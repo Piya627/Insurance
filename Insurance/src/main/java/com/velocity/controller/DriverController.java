@@ -11,7 +11,7 @@ package com.velocity.controller;
 	import java.util.Optional;
 
 	@RestController
-	@RequestMapping("/api/drivers")
+	@RequestMapping("/api/entity2")
 	public class DriverController {
 
 	    @Autowired
@@ -32,7 +32,7 @@ package com.velocity.controller;
 	        }
 	    }
 
-	    @GetMapping
+	    @GetMapping("/getdriver")
 	    public List<Driver> getAllDrivers() {
 	        return driverService.getAllDrivers();
 	    }

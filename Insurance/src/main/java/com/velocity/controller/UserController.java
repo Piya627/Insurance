@@ -18,7 +18,7 @@ import com.velocity.service.PolicyService;
 import com.velocity.service.UserService;
 
 @RestController
-@RequestMapping("/test")
+@RequestMapping("/api/entity1")
 public class UserController {
 	@Autowired
 	private UserService userservice;
@@ -32,10 +32,7 @@ public class UserController {
 		return user1;
 	}
 	
-	@GetMapping("/hello")
-    public String hello() {
-        return "Hello World";
-    }
+	
 
 	
 }
